@@ -1,5 +1,6 @@
 package com.keyin.rest.members;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.keyin.rest.tournaments.Tournament;
 import jakarta.persistence.*;
 
@@ -30,6 +31,7 @@ public class Member {
     private Integer membershipDuration;
 
     @ManyToMany(mappedBy = "membersParticipating")
+    @JsonIgnore
     private List<Tournament> tournaments = new ArrayList<>();
 
     public Member() {
